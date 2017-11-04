@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+    <title>Beginner Javascript - Sharon Morris IS608</title>
+</head>
+<body>
+    <form name="ReverseForm" id="form">
+        Enter String: <input type="text" id="reverseString"/><br/>
+        <input type="submit" value="Enter"/>
+    </form>
+    <script>
+        function reverseString(str) {
+            var s = document.getElementById('reverseString').value;
+            var reversed = '';
+
+            for (var i = s.length - 1; i >= 0; i--) {
+                reversed += s[i];
+            }
+
+            document.getElementById('reverseString').disabled = true;
+            document.getElementById('reverseString').value = reversed;
+        }
+
+        function submit(ev) {
+            ev.preventDefault();
+            reverseString();
+        }
+
+        // Attach to the form
+        document.getElementById('form').addEventListener('submit', submit);
+    </script>
+</body>
+</html>
